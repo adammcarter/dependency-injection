@@ -1,18 +1,24 @@
-//
-//  ContentView.swift
-//  DependencyInjection
-//
-//  Created by Adam Carter on 05/04/2024.
-//
-
 import SwiftUI
 
 // Use the real thing
 
 struct ContentView: View {
+    @Environment(\.dataService) private var dataService
+    
+    @State private var name: String = ""
+    
     var body: some View {
-        Text("")
-            .padding()
+        Group {
+            if dataService.isLoading {
+                ProgressView()
+            } else {
+                Text(name)
+            }
+        }
+        .padding()
+        .task {
+            name = await dataService.fetchName()
+        }
     }
 }
 
@@ -21,4 +27,20 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(\.dataService, .preview())
+}
+
+
+
+
+private struct DataServiceKey: EnvironmentKey {
+    static let defaultValue = DataService()
+}
+
+
+extension EnvironmentValues {
+    var dataService: DataService {
+        get { self[DataServiceKey.self] }
+        set { self[DataServiceKey.self] = newValue }
+    }
 }
