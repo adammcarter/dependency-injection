@@ -3,13 +3,13 @@ import SwiftUI
 // Use the real thing
 
 struct ContentView: View {
-    @Environment(\.dataService) private var dataService
+    @Environment(AppState.self) private var appState
     
     @State private var name: String = ""
     
     var body: some View {
         Group {
-            if dataService.isLoading {
+            if appState.dataRepository.isLoading {
                 ProgressView()
             } else {
                 Text(name)
@@ -17,30 +17,25 @@ struct ContentView: View {
         }
         .padding()
         .task {
-            name = await dataService.fetchName()
+            name = await appState.dataRepository.fetchName()
         }
     }
 }
+
+
 
 
 // Use a fake thing
 
 #Preview {
     ContentView()
-        .environment(\.dataService, .preview())
+        .environment(AppState.preview())
 }
 
-
-
-
-private struct DataServiceKey: EnvironmentKey {
-    static let defaultValue = DataService()
-}
-
-
-extension EnvironmentValues {
-    var dataService: DataService {
-        get { self[DataServiceKey.self] }
-        set { self[DataServiceKey.self] = newValue }
+extension AppState {
+    static func preview() -> AppState {
+        .init(
+            dataRepository: .init()
+        )
     }
 }

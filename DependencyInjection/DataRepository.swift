@@ -2,10 +2,11 @@ import Foundation
 
 // Make the thing
 
-struct DataRepository {
+@Observable
+class DataRepository {
     private(set) var isLoading = false
     
-    mutating func fetchName() async -> String {
+    func fetchName() async -> String {
         isLoading = true
         
         try? await Task.sleep(for: .seconds(3))

@@ -14,8 +14,9 @@
 		CC4484F82BC0919200F8C23E /* DependencyInjectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4484F72BC0919200F8C23E /* DependencyInjectionTests.swift */; };
 		CC4485022BC0919200F8C23E /* DependencyInjectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4485012BC0919200F8C23E /* DependencyInjectionUITests.swift */; };
 		CC4485042BC0919200F8C23E /* DependencyInjectionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4485032BC0919200F8C23E /* DependencyInjectionUITestsLaunchTests.swift */; };
-		CC4485112BC092FD00F8C23E /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4485102BC092FD00F8C23E /* DataService.swift */; };
-		CC4485132BC0931A00F8C23E /* DataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4485122BC0931A00F8C23E /* DataServiceTests.swift */; };
+		CC4485112BC092FD00F8C23E /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4485102BC092FD00F8C23E /* DataRepository.swift */; };
+		CC4485132BC0931A00F8C23E /* DataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4485122BC0931A00F8C23E /* DataRepositoryTests.swift */; };
+		CC4485152BC0A7CA00F8C23E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4485142BC0A7CA00F8C23E /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +48,9 @@
 		CC4484FD2BC0919200F8C23E /* DependencyInjectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DependencyInjectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC4485012BC0919200F8C23E /* DependencyInjectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionUITests.swift; sourceTree = "<group>"; };
 		CC4485032BC0919200F8C23E /* DependencyInjectionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CC4485102BC092FD00F8C23E /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		CC4485122BC0931A00F8C23E /* DataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceTests.swift; sourceTree = "<group>"; };
+		CC4485102BC092FD00F8C23E /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
+		CC4485122BC0931A00F8C23E /* DataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryTests.swift; sourceTree = "<group>"; };
+		CC4485142BC0A7CA00F8C23E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +103,8 @@
 			children = (
 				CC4484E52BC0918A00F8C23E /* DependencyInjectionApp.swift */,
 				CC4484E72BC0918A00F8C23E /* ContentView.swift */,
-				CC4485102BC092FD00F8C23E /* DataService.swift */,
+				CC4485142BC0A7CA00F8C23E /* AppState.swift */,
+				CC4485102BC092FD00F8C23E /* DataRepository.swift */,
 				CC4484E92BC0919100F8C23E /* Assets.xcassets */,
 				CC4484EB2BC0919100F8C23E /* DependencyInjection.entitlements */,
 				CC4484EC2BC0919100F8C23E /* Preview Content */,
@@ -121,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				CC4484F72BC0919200F8C23E /* DependencyInjectionTests.swift */,
-				CC4485122BC0931A00F8C23E /* DataServiceTests.swift */,
+				CC4485122BC0931A00F8C23E /* DataRepositoryTests.swift */,
 			);
 			path = DependencyInjectionTests;
 			sourceTree = "<group>";
@@ -265,9 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC4485112BC092FD00F8C23E /* DataService.swift in Sources */,
+				CC4485112BC092FD00F8C23E /* DataRepository.swift in Sources */,
 				CC4484E82BC0918A00F8C23E /* ContentView.swift in Sources */,
 				CC4484E62BC0918A00F8C23E /* DependencyInjectionApp.swift in Sources */,
+				CC4485152BC0A7CA00F8C23E /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC4484F82BC0919200F8C23E /* DependencyInjectionTests.swift in Sources */,
-				CC4485132BC0931A00F8C23E /* DataServiceTests.swift in Sources */,
+				CC4485132BC0931A00F8C23E /* DataRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
