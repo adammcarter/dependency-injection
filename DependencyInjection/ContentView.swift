@@ -17,12 +17,14 @@ struct ContentView: View {
         }
         .padding()
         .task {
-            name = await appState.dataRepository.fetchName()
+            do {
+                name = try await appState.dataRepository.fetchName()
+            } catch {
+                debugPrint("Error")
+            }
         }
     }
 }
-
-
 
 
 // Use a fake thing
@@ -30,12 +32,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .environment(AppState.preview())
-}
-
-extension AppState {
-    static func preview() -> AppState {
-        .init(
-            dataRepository: .init()
-        )
-    }
 }

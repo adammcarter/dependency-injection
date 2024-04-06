@@ -13,6 +13,6 @@ struct DependencyInjectionApp: App {
         WindowGroup {
             ContentView()
         }
-        .environment(AppState())
+        .environment(AppState.make())
     }
 }

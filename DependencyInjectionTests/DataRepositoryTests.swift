@@ -7,12 +7,21 @@ final class DataRepositoryTests: XCTestCase {
     
     var sut: DataRepository!
     
-    func testFetchName() async {
-        sut = .init()
+    func testFetchName() async throws {
+        sut = .init(
+            urlSession: .test(
+                _dataFromUrl: { _ in
+                    let post = Post(title: "Some test title")
+                    let data = try! JSONEncoder().encode(post)
+                    
+                    return (data, URLResponse())
+                }
+            )
+        )
         
-        let name = await sut.fetchName()
+        let name = try await sut.fetchName()
         
-        XCTAssertEqual(name, "Real name")
+        XCTAssertEqual(name, "Some test title")
     }
 }
 
